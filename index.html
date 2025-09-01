@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeTech</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    }
+
+    button {
+      background: #ff6a00;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff8800;
+      transform: scale(1.1);
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff6a00, 0 0 30px #ff8800; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ffbb00, 0 0 40px #ffdd55; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to JeTech</h1>
+  <button onclick="showMessage()">Click me po</button>
+  <div class="message" id="message">Be proud of yourself ✨ Keep the hard work and good work!</div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").classList.add("show");
+    }
+  </script>
+</body>
+</html>
