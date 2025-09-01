@@ -2,67 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to jetech</title>
+  <title>Welcome to azeuomi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for a soft, feminine feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-bg: #181c29;
-      --accent: #00ffe7;
-      --mail-bg: #22283b;
-      --mail-hover: #00ffe7;
-      --mail-hover-bg: #101322;
-      --text-main: #f7fcff;
-      --input-bg: #22283b;
-      --input-border: #00ffe7;
+      --main-bg: linear-gradient(135deg, #ffe5ec 0%, #f8edeb 50%, #f3d1f4 100%);
+      --accent: #ee99c2;
+      --accent-dark: #ad5389;
+      --input-bg: #fff0f6;
+      --input-border: #ee99c2;
+      --button-bg: linear-gradient(90deg, #ffb7c5, #ffdde1);
+      --button-hover: #ee99c2;
+      --mail-bg: #fff0f6;
+      --mail-border: #ee99c2;
+      --mail-shadow: 0 4px 20px #ee99c244;
+      --firework1: #ffb7c5;
+      --firework2: #d291bc;
+      --firework3: #f3d1f4;
+      --firework4: #f6c1c7;
+      --text-main: #ad5389;
+      --text-sub: #b085b7;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #181c29, #22283b 100%);
+      background: var(--main-bg);
+      font-family: 'Nunito', Arial, sans-serif;
       color: var(--text-main);
-      font-family: 'Roboto', Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 0;
+      overflow-x: hidden;
     }
     .container {
-      width: 100%;
-      max-width: 420px;
-      margin: 60px auto 0 auto;
-      background: rgba(24,28,41, 0.97);
-      border-radius: 18px;
-      box-shadow: 0 8px 40px #00ffe722;
-      padding: 32px 28px 40px 28px;
+      width: 100vw;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
       position: relative;
     }
     h1 {
-      margin: 0 0 28px 0;
-      font-family: 'Orbitron', Arial, sans-serif;
-      font-size: 2.3rem;
-      letter-spacing: 2px;
-      color: var(--accent);
-      text-shadow: 0 0 12px #00ffe799;
+      font-family: 'Quicksand', cursive, sans-serif;
+      font-size: 2.5em;
+      letter-spacing: 1.8px;
+      color: var(--accent-dark);
+      margin: 44px 0 24px 0;
       text-align: center;
+      text-shadow: 0 2px 12px #fff9;
+    }
+    .center-box {
+      margin: 40px 0 0 0;
+      padding: 36px 32px 40px 32px;
+      background: #fff7faee;
+      border-radius: 28px;
+      box-shadow: 0 8px 36px #ffb7c533, 0 2px 4px #d291bc22;
+      max-width: 350px;
+      width: 94%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     label {
-      font-size: 1.22em;
+      font-size: 1.25em;
       margin-bottom: 18px;
-      color: #b2f5ff;
+      color: var(--accent-dark);
+      letter-spacing: 0.8px;
+      font-weight: 700;
       text-align: center;
-      line-height: 1.4;
     }
     .input-group {
       display: flex;
       width: 100%;
-      gap: 12px;
-      margin-bottom: 28px;
+      gap: 13px;
+      margin-bottom: 18px;
+      justify-content: center;
     }
     input[type="number"] {
       padding: 12px 18px;
@@ -70,131 +92,218 @@
       border: 2px solid var(--input-border);
       border-radius: 8px;
       background: var(--input-bg);
-      color: var(--accent);
-      width: 100%;
+      color: var(--accent-dark);
+      width: 75px;
       outline: none;
       transition: border 0.2s;
+      text-align: center;
+      font-family: 'Quicksand', Arial, sans-serif;
+      box-shadow: 0 2px 8px #f8d7e9aa;
     }
     input[type="number"]:focus {
-      border-color: #22e0e0;
+      border-color: #d291bc;
     }
     button {
-      background: var(--accent);
-      color: #191c25;
+      background: var(--button-bg);
+      color: var(--accent-dark);
       border: none;
       border-radius: 8px;
-      padding: 0 22px;
+      padding: 0 20px;
       font-size: 1.1em;
-      font-family: 'Orbitron', Arial, sans-serif;
+      font-family: 'Quicksand', Arial, sans-serif;
       font-weight: 700;
       cursor: pointer;
       transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-      box-shadow: 0 2px 12px #00ffe733;
+      box-shadow: 0 2px 12px #d291bc33;
       height: 44px;
+      letter-spacing: 1px;
     }
-    button:active {
-      background: #05bcbc;
+    button:active, button:hover {
+      background: var(--button-hover);
       color: #fff;
     }
     .mail-pop {
-      margin: 38px 0 0 0;
+      margin: 48px 0 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s;
+      position: relative;
+      z-index: 2;
     }
     .mail-pop.visible {
       opacity: 1;
       pointer-events: all;
-      animation: popMail 0.7s cubic-bezier(0.2, 1.7, 0.4, 0.9);
+      animation: popMail 0.8s cubic-bezier(.2,1.2,.2,1.0);
     }
     @keyframes popMail {
-      0% { transform: scale(0.4) rotate(-10deg);}
-      70% { transform: scale(1.05) rotate(5deg);}
+      0% { transform: scale(0.3) rotate(-8deg);}
+      70% { transform: scale(1.07) rotate(2deg);}
       100% { transform: scale(1) rotate(0);}
     }
     .mail-icon {
-      width: 70px;
-      height: 54px;
+      width: 80px;
+      height: 58px;
       background: var(--mail-bg);
-      border-radius: 12px 12px 22px 22px;
+      border-radius: 14px 14px 22px 22px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 18px #00ffe733;
-      margin-bottom: 12px;
+      box-shadow: var(--mail-shadow);
+      margin-bottom: 13px;
       cursor: pointer;
       transition: background 0.2s, box-shadow 0.2s;
       position: relative;
-      border: 2px solid var(--accent);
+      border: 2.5px solid var(--mail-border);
     }
-    .mail-icon:hover {
-      background: var(--mail-hover-bg);
-      box-shadow: 0 0 18px var(--mail-hover), 0 6px 20px #00ffe766;
-      border-color: var(--mail-hover);
+    .mail-icon:hover, .mail-icon:focus {
+      background: #ffe5f1;
+      border-color: #d291bc;
+      box-shadow: 0 0 18px #f3d1f488, 0 6px 24px #f6c1c788;
+      outline: none;
     }
     .mail-icon svg {
       display: block;
-      width: 38px;
-      height: 38px;
+      width: 44px;
+      height: 44px;
       fill: var(--accent);
-      filter: drop-shadow(0 0 6px #00ffe7cc);
+      filter: drop-shadow(0 0 10px #f3d1f4cc);
     }
     .mail-message {
       margin-top: 12px;
-      background: #151a28;
-      padding: 20px 18px;
-      border-radius: 10px;
-      color: #fff;
-      font-size: 1.15em;
-      box-shadow: 0 4px 24px #00ffe722;
-      font-weight: 500;
-      min-height: 34px;
+      background: #fff0f6ee;
+      padding: 18px 15px;
+      border-radius: 12px;
+      color: var(--accent-dark);
+      font-size: 1.13em;
+      box-shadow: 0 4px 24px #f6c1c722;
+      font-weight: 600;
+      min-height: 28px;
       opacity: 0;
       transition: opacity 0.4s;
       max-width: 320px;
       text-align: center;
       position: relative;
       z-index: 1;
+      border: 1.5px solid #f3d1f4;
+      pointer-events: none;
     }
     .mail-message.visible {
       opacity: 1;
-      animation: fadeInMsg 0.5s cubic-bezier(0.3,1.6,0.5,1.0);
+      pointer-events: all;
+      animation: fadeInMsg 0.5s cubic-bezier(.3,1.6,.5,1.0);
     }
     @keyframes fadeInMsg {
       0% { opacity: 0; transform: translateY(30px);}
       100% { opacity: 1; transform: translateY(0);}
     }
+    /* Firework canvas settings */
+    #fireworks-canvas {
+      position: fixed;
+      left: 0; top: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    #fireworks-canvas.visible {
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
     @media (max-width: 600px) {
-      .container { margin: 30px 6px; padding: 19px 7px 30px 7px; }
-      h1 { font-size: 1.3rem; }
-      .mail-icon { width: 54px; height: 42px; }
-      .mail-message { min-height: 24px; font-size: 1em; }
+      .container { padding: 0; }
+      h1 { font-size: 1.2rem; }
+      .center-box { margin-top: 20px; padding: 16px 4px 26px 4px; }
+      .mail-icon { width: 54px; height: 38px; }
+      .mail-message { min-height: 18px; font-size: 0.97em; }
     }
   </style>
 </head>
 <body>
+  <canvas id="fireworks-canvas"></canvas>
   <div class="container">
-    <h1>welcome to jetech</h1>
-    <label for="number-input">Choose a number between 1-10:</label>
-    <form class="input-group" id="number-form" autocomplete="off">
-      <input type="number" id="number-input" min="1" max="10" placeholder="Enter number..." required>
-      <button type="submit">Enter</button>
-    </form>
-    <div class="mail-pop" id="mail-pop">
-      <div class="mail-icon" id="mail-icon" tabindex="0" title="Click to reveal your message!">
-        <!-- SVG Mail Icon -->
-        <svg viewBox="0 0 48 48">
-          <rect x="7" y="12" width="34" height="24" rx="5"/>
-          <polyline points="7,14 24,28 41,14" fill="none" stroke="#00ffe7" stroke-width="2"/>
-        </svg>
+    <h1>welcome to azeuomi</h1>
+    <div class="center-box">
+      <label for="number-input">Choose a number between 1-10:</label>
+      <form class="input-group" id="number-form" autocomplete="off">
+        <input type="number" id="number-input" min="1" max="10" placeholder="Enter..." required>
+        <button type="submit">Enter</button>
+      </form>
+      <div class="mail-pop" id="mail-pop">
+        <div class="mail-icon" id="mail-icon" tabindex="0" title="Click to reveal your message!">
+          <!-- SVG Mail Icon -->
+          <svg viewBox="0 0 48 48">
+            <rect x="7" y="12" width="34" height="24" rx="6"/>
+            <polyline points="7,14 24,28 41,14" fill="none" stroke="#ee99c2" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="mail-message" id="mail-message"></div>
       </div>
-      <div class="mail-message" id="mail-message"></div>
     </div>
   </div>
   <script>
+    // Fireworks animation (simple, pastel, non-intrusive)
+    const canvas = document.getElementById('fireworks-canvas');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    let fireworks = [];
+    function resizeCanvas() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function pastelColor() {
+      const colors = ["#ffb7c5", "#d291bc", "#f3d1f4", "#f6c1c7", "#ffdde1", "#f8edeb"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function launchFirework(x, y) {
+      let count = 14 + Math.round(Math.random() * 6);
+      for (let i=0; i<count; i++) {
+        let angle = (Math.PI * 2 * i) / count;
+        let speed = 2.5 + Math.random()*2.2;
+        fireworks.push({
+          x: x,
+          y: y,
+          vx: Math.cos(angle)*speed,
+          vy: Math.sin(angle)*speed,
+          alpha: 1,
+          color: pastelColor(),
+          size: 2.2 + Math.random()*2.7
+        });
+      }
+    }
+    function animateFireworks() {
+      ctx.clearRect(0,0,W,H);
+      for (let i=fireworks.length-1; i>=0; i--) {
+        let fw = fireworks[i];
+        fw.x += fw.vx;
+        fw.y += fw.vy;
+        fw.vy += 0.03;
+        fw.alpha -= 0.018 + Math.random()*0.011;
+        ctx.globalAlpha = Math.max(fw.alpha,0);
+        ctx.beginPath();
+        ctx.arc(fw.x, fw.y, fw.size, 0, Math.PI*2);
+        ctx.fillStyle = fw.color;
+        ctx.shadowColor = fw.color;
+        ctx.shadowBlur = 15;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        if (fw.alpha <= 0) fireworks.splice(i,1);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animateFireworks);
+    }
+    animateFireworks();
+
+    // Main logic
     const form = document.getElementById('number-form');
     const input = document.getElementById('number-input');
     const mailPop = document.getElementById('mail-pop');
@@ -202,36 +311,54 @@
     const mailMessage = document.getElementById('mail-message');
 
     const messages = {
-      1: 'you are a good person',
+      1: 'you are a good friend of mine',
       2: 'you are beautiful inside and outside',
       3: 'you are a beautiful person i hope you know it',
       4: 'prioritize yourself before anyone else',
       5: 'can you tell your parents how did they created such a attractive son/daughter?',
       6: "you're doing good at your acads",
       7: "I'm very proud of you",
-      8: "you are a unique person i hope you've become successful",
-      9: "jethhhh pogiiiii",
-      10: "WAAAA JETHHH POGIIII"
+      8: "you are a unique person i hope you've become successful in life",
+      9: "you will be the only one best friend that i want",
+      10: "we are both beautiful"
     };
-
-    // Hide mail and message initially
-    mailPop.classList.remove('visible');
-    mailMessage.classList.remove('visible');
-    mailMessage.textContent = '';
+    let lastNumber = null;
+    let fireworkTimeout = null;
+    let messageTimeout = null;
 
     function showMail() {
       mailPop.classList.add('visible');
       mailMessage.classList.remove('visible');
       mailMessage.textContent = '';
+      setTimeout(() => mailIcon.focus(), 200);
+      // Center fireworks launch
+      canvas.classList.add('visible');
+      for (let i=0;i<4;i++) {
+        setTimeout(() => {
+          launchFirework(W/2 + (Math.random()-0.5)*100, H/2 + (Math.random()-0.5)*80);
+        }, i*180);
+      }
+      // Hide fireworks after 2.5s
+      clearTimeout(fireworkTimeout);
+      fireworkTimeout = setTimeout(()=>canvas.classList.remove('visible'), 2500);
     }
 
     function showMessage(num) {
       if(messages[num]) {
         mailMessage.textContent = messages[num];
         mailMessage.classList.add('visible');
+        // Hide after 5 seconds
+        clearTimeout(messageTimeout);
+        messageTimeout = setTimeout(()=>{
+          mailMessage.classList.remove('visible');
+        }, 5000);
       } else {
         mailMessage.textContent = "Pick a number between 1 and 10!";
         mailMessage.classList.add('visible');
+        clearTimeout(messageTimeout);
+        messageTimeout = setTimeout(()=>{
+          mailMessage.classList.remove('visible');
+        }, 2300);
       }
     }
 
@@ -240,9 +367,8 @@
       e.preventDefault();
       const val = parseInt(input.value, 10);
       if(val >= 1 && val <= 10) {
+        lastNumber = val;
         showMail();
-        // Optionally focus the mail icon for accessibility
-        mailIcon.focus();
       } else {
         mailPop.classList.remove('visible');
         mailMessage.textContent = '';
@@ -253,14 +379,12 @@
 
     // Show message when mail is clicked
     mailIcon.addEventListener('click', function() {
-      const val = parseInt(input.value, 10);
-      showMessage(val);
+      if (lastNumber !== null) showMessage(lastNumber);
     });
     // Keyboard accessibility
     mailIcon.addEventListener('keydown', function(e) {
       if(e.key === 'Enter' || e.key === ' ') {
-        const val = parseInt(input.value, 10);
-        showMessage(val);
+        if (lastNumber !== null) showMessage(lastNumber);
       }
     });
   </script>
