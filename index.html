@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to azeuomi</title>
+  <title>welcome to azeuomi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts for a soft, feminine feel -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for soft/feminine look -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;400&family=Quicksand:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-bg: linear-gradient(135deg, #ffe5ec 0%, #f8edeb 50%, #f3d1f4 100%);
-      --accent: #ee99c2;
+      --bg-grad: linear-gradient(135deg, #ffe5ec 0%, #f8edeb 50%, #f3d1f4 100%);
+      --accent-pink: #ee99c2;
       --accent-dark: #ad5389;
+      --box-bg: #fff7faee;
       --input-bg: #fff0f6;
       --input-border: #ee99c2;
-      --button-bg: linear-gradient(90deg, #ffb7c5, #ffdde1);
-      --button-hover: #ee99c2;
+      --button-grad: linear-gradient(90deg, #ffb7c5, #ffdde1);
       --mail-bg: #fff0f6;
       --mail-border: #ee99c2;
-      --mail-shadow: 0 4px 20px #ee99c244;
+      --shadow: 0 8px 36px #ffb7c533, 0 2px 4px #d291bc22;
       --firework1: #ffb7c5;
       --firework2: #d291bc;
       --firework3: #f3d1f4;
@@ -32,7 +32,7 @@
     }
     body {
       min-height: 100vh;
-      background: var(--main-bg);
+      background: var(--bg-grad);
       font-family: 'Nunito', Arial, sans-serif;
       color: var(--text-main);
       display: flex;
@@ -62,9 +62,9 @@
     .center-box {
       margin: 40px 0 0 0;
       padding: 36px 32px 40px 32px;
-      background: #fff7faee;
+      background: var(--box-bg);
       border-radius: 28px;
-      box-shadow: 0 8px 36px #ffb7c533, 0 2px 4px #d291bc22;
+      box-shadow: var(--shadow);
       max-width: 350px;
       width: 94%;
       display: flex;
@@ -104,7 +104,7 @@
       border-color: #d291bc;
     }
     button {
-      background: var(--button-bg);
+      background: var(--button-grad);
       color: var(--accent-dark);
       border: none;
       border-radius: 8px;
@@ -119,7 +119,7 @@
       letter-spacing: 1px;
     }
     button:active, button:hover {
-      background: var(--button-hover);
+      background: var(--accent-pink);
       color: #fff;
     }
     .mail-pop {
@@ -132,8 +132,6 @@
       transition: opacity 0.5s;
       position: relative;
       z-index: 2;
-{
-  
     }
     .mail-pop.visible {
       opacity: 1;
@@ -153,7 +151,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--mail-shadow);
+      box-shadow: 0 4px 20px #ee99c244;
       margin-bottom: 13px;
       cursor: pointer;
       transition: background 0.2s, box-shadow 0.2s;
@@ -170,10 +168,47 @@
       display: block;
       width: 44px;
       height: 44px;
-      fill: var(--accent);
+      fill: var(--accent-pink);
       filter: drop-shadow(0 0 10px #f3d1f4cc);
     }
-     .mail-message {
+    .tapme-text {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffb7c5;
+      color: #ad5389;
+      padding: 3px 13px;
+      border-radius: 11px;
+      font-size: 1em;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #f8d7e9aa;
+      letter-spacing: 1px;
+      z-index:2;
+      opacity: 1;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      user-select: none;
+    }
+    .mail-pop:not(.visible) .tapme-text {
+      opacity: 0;
+    }
+    .clickme-text {
+      margin-top: 2px;
+      color: #d291bc;
+      font-size: 1.08em;
+      font-family: 'Nunito', Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 1;
+      transition: opacity 0.3s;
+      user-select: none;
+    }
+    .mail-pop:not(.visible) .clickme-text {
+      opacity: 0;
+    }
+    .mail-message {
       margin-top: 12px;
       background: #fff0f6ee;
       padding: 18px 15px;
@@ -201,7 +236,6 @@
       0% { opacity: 0; transform: translateY(30px);}
       100% { opacity: 1; transform: translateY(0);}
     }
-    /* Firework canvas settings */
     #fireworks-canvas {
       position: fixed;
       left: 0; top: 0;
@@ -222,6 +256,8 @@
       .center-box { margin-top: 20px; padding: 16px 4px 26px 4px; }
       .mail-icon { width: 54px; height: 38px; }
       .mail-message { min-height: 18px; font-size: 0.97em; }
+      .tapme-text { font-size: 0.88em; padding: 2px 7px; }
+      .clickme-text { font-size: 0.92em; }
     }
   </style>
 </head>
@@ -237,12 +273,14 @@
       </form>
       <div class="mail-pop" id="mail-pop">
         <div class="mail-icon" id="mail-icon" tabindex="0" title="Click to reveal your message!">
+          <span class="tapme-text">tap me</span>
           <!-- SVG Mail Icon -->
           <svg viewBox="0 0 48 48">
             <rect x="7" y="12" width="34" height="24" rx="6"/>
             <polyline points="7,14 24,28 41,14" fill="none" stroke="#ee99c2" stroke-width="2"/>
           </svg>
         </div>
+        <span class="clickme-text">click me</span>
         <div class="mail-message" id="mail-message"></div>
       </div>
     </div>
@@ -333,14 +371,12 @@
       mailMessage.classList.remove('visible');
       mailMessage.textContent = '';
       setTimeout(() => mailIcon.focus(), 200);
-      // Center fireworks launch
       canvas.classList.add('visible');
       for (let i=0;i<4;i++) {
         setTimeout(() => {
           launchFirework(W/2 + (Math.random()-0.5)*100, H/2 + (Math.random()-0.5)*80);
         }, i*180);
       }
-      // Hide fireworks after 2.5s
       clearTimeout(fireworkTimeout);
       fireworkTimeout = setTimeout(()=>canvas.classList.remove('visible'), 2500);
     }
@@ -349,7 +385,6 @@
       if(messages[num]) {
         mailMessage.textContent = messages[num];
         mailMessage.classList.add('visible');
-        // Hide after 5 seconds
         clearTimeout(messageTimeout);
         messageTimeout = setTimeout(()=>{
           mailMessage.classList.remove('visible');
@@ -364,7 +399,6 @@
       }
     }
 
-    // Form submission
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       const val = parseInt(input.value, 10);
@@ -379,11 +413,9 @@
       input.blur();
     });
 
-    // Show message when mail is clicked
     mailIcon.addEventListener('click', function() {
       if (lastNumber !== null) showMessage(lastNumber);
     });
-    // Keyboard accessibility
     mailIcon.addEventListener('keydown', function(e) {
       if(e.key === 'Enter' || e.key === ' ') {
         if (lastNumber !== null) showMessage(lastNumber);
